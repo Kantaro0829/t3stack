@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  db:
+    build: .
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    environment:
+      - MYSQL_ROOT_PASSWORD=t3stack
+      - MYSQL_DATABASE=t3stack
+      - MYSQL_USER=t3stack
+      - MYSQL_PASSWORD=t3stack
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
+volumes:
+  db:
+    driver: local
